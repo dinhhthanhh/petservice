@@ -141,7 +141,7 @@
         <input type="password" class="input" placeholder="Password" required>
       </div>
       <div class="input-field">
-        <input type="submit" class="submit" value="Login">
+        <input type="submit" class="submit" value="Login" id="loginButton">
       </div>
       <div class="bottom">
         <div class="left">
@@ -160,6 +160,10 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       document.body.classList.add('ready');
+
+      document.getElementById("loginButton").addEventListener("click", function() {
+        window.location.href = "Trang chủ có đăng nhập.html";
+      });
     });
   </script>
 </body>
