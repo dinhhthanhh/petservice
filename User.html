@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chủ sở hữu và thú cưng</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .navigation {
+        float: left;
+        width: 200px;
+        background-color: #4CAF50;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .navigation h3 {
+        margin-top: 0;
+        font-style: Bold;
+        opacity: 0.8;
+    }
+    .navigation ul {
+        list-style-type: none;
+        padding: 0;
+        display: none;
+    }
+    .navigation ul li {
+        margin-bottom: 10px;
+    }
+    .navigation ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+    }
+    .navigation ul li a:hover {
+        background-color: #357a38;
+    }
+    .content {
+        float: left;
+        width: calc(100% - 220px);
+        padding-left: 20px;
+    }
+    h1 {
+        margin-top: 0;
+        color: #333;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        width: 200px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        font-style: italic;
+        opacity: 0.8;
+    }
+    input[type="text"]:focus {
+        font-style: normal;
+        opacity: 1;
+    }
+    input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 12px 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    .no-result {
+        display: none;
+        color: red;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="navigation" onmouseover="showNavigation()" onmouseout="hideNavigation()">
+        <h3>Điều hướng</h3>
+        <ul id="navList">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Cửa hàng</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Chủ sở hữu và thú cưng</h1>
+        <form action="#" method="post" onsubmit="return search()">
+            <input type="text" id="searchInput" name="search" placeholder="Tìm kiếm theo tên...">
+            <input type="submit" value="Tìm kiếm">
+        </form>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Checkbox</th>
+                    <th>Số thứ tự</th>
+                    <th>Họ và tên chủ sở hữu</th>
+                    <th>Số liên lạc</th>
+                    <th>Số lượng thú cưng</th>
+                    <th>Ngày cập nhật</th>
+                    <th>Giới tính</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu từ SQL sẽ được lặp qua và đổ vào đây -->
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>0123456789</td>
+                    <td>2</td>
+                    <td>2024-03-16</td>
+                    <td>Nam</td>
+                    <td>Đã cập nhật</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td>Trần Thị B</td>
+                    <td>0987654321</td>
+                    <td>3</td>
+                    <td>2024-03-15</td>
+                    <td>Nữ</td>
+                    <td>Đã cập nhật</td>
+                </tr>
+                <!-- Thêm các hàng dữ liệu khác tương tự ở đây -->
+            </tbody>
+        </table>
+        <p id="noResult" class="no-result">Không tìm thấy kết quả</p>
+    </div>
+</div>
+
+<script>
+    function showNavigation() {
+        var navList = document.getElementById("navList");
+        navList.style.display = "block";
+    }
+
+    function hideNavigation() {
+        var navList = document.getElementById("navList");
+        navList.style.display = "none";
+    }
+
+    function search() {
+        var input, filter, table, tr, td, i, txtValue, noResult;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dataTable");
+        tr = table.getElementsByTagName("tr");
+        noResult = true;
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2]; // Index 2 for 'Họ và tên chủ sở hữu'
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    noResult = false;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        var noResultElement = document.getElementById("noResult");
+        if (noResult) {
+            noResultElement.style.display = "block";
+        } else {
+            noResultElement.style.display = "none";
+        }
+        return false; // Prevent form submission
+    }
+</script>
+
+</body>
+</html>

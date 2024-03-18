@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #FEF1FA; /* Màu nền màu hồng */
+    }
+
+    .container {
+      width: 80%;
+      height: 50%;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between; /* Căn logo và nút login về hai phía khác nhau */
+      align-items: center; /* Căn giữa theo chiều dọc */
+      background-color: #FAADB3; /* Màu nền header */
+      color: #fff;
+      padding: 1px 0; /* Để logo cách mép trên dưới của header */
+    }
+
+    .logo img {
+      height: 50%; /* Để logo chiếm toàn bộ chiều cao của header */
+    }
+
+    header .logo {
+      float: left;
+    }
+
+    header .login {
+      float: right;
+      display: flex;
+      align-items: center;
+      padding: 30px 10px;
+    }
+
+    header .login a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+    }
+
+    header .login a:hover {
+      background-color: #FCCCDC;
+      color: #FFF;
+      font-weight: bold; /* Chuyển sang dạng bold */
+      box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Nổi lên */
+    }
+
+    header .register a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    header .register a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    nav {
+      background-color: #F25EA3;
+      padding: 15px 0;
+      text-align: center;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+    }
+
+    nav ul li a:hover {
+      font-weight: bold; /* Chuyển sang dạng bold */
+      box-shadow: 0 0 0 rgba(0,0,0,0.3); /* Nổi lên */
+    }
+
+    .slideshow {
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides img {
+      width: 100%;
+      display: none;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+
+    .active {
+      background-color: #333;
+    }
+    .main-content {
+      padding: 20px;
+      text-align: center;
+  }
+  .feature {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      transition: transform 0.3 ease-in-out;
+  }
+  .feature:hover{
+      transform: scale(1.1);
+  }
+  .feature h2 {
+      color: #333;
+  }
+  .intro {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+  }
+    footer {
+      background-color: #F25EA3; /* Màu nền footer */
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKWsREO4ITRyMJKJcZ-Sfo92x_9fTE6klmH6zwEsoEKJyovdiN1SPPnjwg8PViXqJa2qw&usqp=CAU" alt="Logo" style="width: 100px; height: auto;">
+      </div>
+      <div class="login">
+        <a href="Login.html">Login</a>
+        <a href="#" class="register">Register</a>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Dịch vụ</a></li>
+        <li><a href="#">Người dùng</a></li>
+        <li><a href="#">Cửa hàng</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="slideshow">
+    <div class="container">
+      <div class="slides">
+        <img src="https://hust.edu.vn/uploads/sys/news/2017/02/165032.jpg" alt="Image 1">
+        <img src="https://dongphucgiadinh.com/wp-content/uploads/2022/09/logo-dai-hoc-bach-khoa.png" alt="Image 2">
+        <img src="https://hust.edu.vn/uploads/sys/news/2021/05/573837.jpg" alt="Image 3">
+        <img src="https://hust.edu.vn/uploads/sys/su-kien-noi-bat/2023_10/concept-bkntv2023-cover-skien.png" alt="Image 4">
+        <img src="https://1.bp.blogspot.com/-BfWd1PKPNJM/YL8Ucuy3nvI/AAAAAAAABmQ/fTMHpyQZbiQg0R_mqKTKtlUHlO6nDRoagCLcBGAsYHQ/s1275/Screenshot%2Bfrom%2B2021-06-08%2B13-55-17.png" alt="Image 5">
+      </div>
+      <div class="dots"></div>
+    </div>
+  </section>
+  <div class="main-content">
+    <div class="feature">
+        <h2>Dịch Vụ Chăm Sóc Thú Cưng</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra tortor vitae nunc cursus, ac tincidunt nisl mattis.</p>
+    </div>
+    <div class="feature">
+        <h2>Thú Cưng Yêu Thích</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra tortor vitae nunc cursus, ac tincidunt nisl mattis.</p>
+    </div>
+    <div class="feature">
+        <h2>Tư Vấn Chuyên Gia</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra tortor vitae nunc cursus, ac tincidunt nisl mattis.</p>
+    </div>
+</div>
+<div class="intro">
+    <h2>Chào mừng đến với trang web Quản Lí Thú Cưng!</h2>
+    <p>Chúng tôi cung cấp các dịch vụ chăm sóc thú cưng chất lượng và đáng tin cậy. Hãy tham khảo các dịch vụ của chúng tôi ngay hôm nay!</p>
+</div>
+  <footer>
+    <div class="container">
+      <p>© 2022 Website Example. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    const currentIndex = { value: 0 };
+    const images = document.querySelectorAll('.slides img');
+    const totalImages = images.length;
+    const dotsContainer = document.querySelector('.dots');
+
+    function showNextImage() {
+      images[currentIndex.value].style.display = 'none';
+      currentIndex.value = (currentIndex.value + 1) % totalImages;
+      images[currentIndex.value].style.display = 'block';
+      updateDots();
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex.value].classList.add('active');
+    }
+
+    function createDots() {
+      for (let i = 0; i < totalImages; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dotsContainer.appendChild(dot);
+      }
+      updateDots();
+    }
+
+    createDots();
+    setInterval(showNextImage, 5000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+	 header{
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            padding: 0 0 15px 0;
+        }
+    body {
+      background-image: url("https://i.pinimg.com/564x/5e/2b/94/5e2b946d6549c7ff5dbf2a88e20dc4aa.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s ease-in-out;
+      transform: translateY(-30%); /* Di chuyển xuống khỏi màn hình khi tải trang */
+      background: rgba(0, 0, 0, 0.3); /* Thêm màu nền cho ô vuông */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ */
+    }
+
+    .container {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 15px 20px 20px;
+    }
+
+    body.ready .box {
+      transform: translateY(0); /* Hiển thị hộp login khi trang đã tải xong */
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .input-field .input {
+      height: 45px;
+      width: 87%;
+      border: none;
+      outline: none;
+      border-radius: 30px;
+      color: #fff;
+      padding: 0 0 0 42px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+      color: #fff;
+    }
+
+    ::-webkit-input-placeholder {
+      color: #fff;
+    }
+
+    .submit {
+      border: none;
+      border-radius: 30px;
+      font-size: 15px;
+      height: 45px;
+      outline: none;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .submit:hover {
+      box-shadow: 1px 5px 7px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: small;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+    }
+
+    label a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    label:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box" class="box">
+    <div class="container">
+      <div class="top-header">
+        <header>Login</header>
+      </div>
+      <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="text" class="input" placeholder="Email or phone number" required>
+      </div>
+      <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input type="password" class="input" placeholder="Password" required>
+      </div>
+      <div class="input-field">
+        <input type="submit" class="submit" value="Login">
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <input type="checkbox" id="check">
+          <label for="check" style="margin-left: 5px;">Remember me</label>
+        </div>
+        <div class="right">
+          <label><a href="#">Forgot Password</a></label>
+          <a>or</a>
+          <label><a href="#">Register</a></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add('ready');
+    });
+  </script>
+</body>
+</html>
