@@ -6,10 +6,11 @@
 <title>Chủ sở hữu và thú cưng</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f7f7f7;
+        background-color: #f9f9f9;
+        color: #333;
     }
     .container {
         max-width: 1200px;
@@ -17,19 +18,20 @@
         padding: 20px;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
     }
     .navigation {
         float: left;
         width: 200px;
         background-color: #4CAF50;
         color: #fff;
-        border-radius: 5px;
+        border-radius: 8px;
         padding: 10px;
         cursor: pointer;
     }
     .navigation h3 {
         margin-top: 0;
-        font-style: Bold;
+        font-weight: bold;
         opacity: 0.8;
     }
     .navigation ul {
@@ -44,7 +46,7 @@
         color: #fff;
         text-decoration: none;
         display: block;
-        padding: 5px 10px;
+        padding: 8px 10px;
         border-radius: 3px;
         transition: background-color 0.3s;
     }
@@ -53,7 +55,7 @@
     }
     .content {
         float: left;
-        width: calc(100% - 220px);
+        width: calc(100% - 240px);
         padding-left: 20px;
     }
     h1 {
@@ -106,6 +108,15 @@
     .no-result {
         display: none;
         color: red;
+    }
+    @media screen and (max-width: 768px) {
+        .navigation {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .content {
+            width: 100%;
+        }
     }
 </style>
 </head>
